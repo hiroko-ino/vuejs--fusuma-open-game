@@ -9,8 +9,20 @@
       class="fusuma-wrapper"
       :style="{ 'z-index': 10 - fusuma.id }"
     >
-      <div class="fusuma-left" :style="{ transform: `translateX(${getFusumaPosition(count, fusuma.id, 'left')}%)`, backgroundColor: fusuma.color }" />
-      <div class="fusuma-right" :style="{ transform: `translateX(${getFusumaPosition(count, fusuma.id, 'right')}%)`, backgroundColor: fusuma.color }" />
+      <div
+        class="fusuma-left"
+        :style="{
+          transform: `translateX(${getFusumaPosition(count, fusuma.id, 'left')}%)`,
+          backgroundColor: fusuma.color
+        }"
+      />
+      <div
+        class="fusuma-right"
+        :style="{
+          transform: `translateX(${getFusumaPosition(count, fusuma.id, 'right')}%)`,
+          backgroundColor: fusuma.color
+        }"
+      />
     </div>
   </div>
 </template>
@@ -23,11 +35,11 @@ import { interpolate } from 'popmotion'
 const fusumas = [
   {
     id: 1,
-    color: '#FF0000',
+    color: '#FF0000'
   },
   {
     id: 2,
-    color: '#00FFFF',
+    color: '#00FFFF'
   },
   {
     id: 3,
@@ -58,9 +70,9 @@ usePinch(
   {
     domTarget: demoBox,
     eventOptions: {
-      passive: true,
-    },
-  },
+      passive: true
+    }
+  }
 )
 
 useHover(
@@ -77,14 +89,13 @@ useHover(
     document.addEventListener('gesturechange', cancelEvent)
   },
   {
-    domTarget: demoBox,
-  },
+    domTarget: demoBox
+  }
 )
 
 // Disable viewport pinch zoom on whole app
 
 const cancelEvent = (e) => e.preventDefault()
-
 </script>
 
 <style scoped>
