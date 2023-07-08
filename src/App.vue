@@ -53,7 +53,7 @@ const count = ref(0)
 
 const mapper = interpolate([0, 2000], [0, 300], { clamp: true })
 
-const getFusumaPosition = (count, index, position) => {
+const getFusumaPosition = (count: number, index: number, position: 'left' | 'right') => {
   if (count <= (index - 1) * 100) {
     return 0
   } else if (count < index * 100) {
@@ -64,7 +64,7 @@ const getFusumaPosition = (count, index, position) => {
 }
 
 usePinch(
-  ({ offset: [d], pinching }) => {
+  ({ offset: [d], pinching }: { offset: number[], pinching: boolean }) => {
     count.value = mapper(d)
   },
   {
@@ -76,7 +76,7 @@ usePinch(
 )
 
 useHover(
-  ({ hovering }) => {
+  ({ hovering }: {hovering: boolean}) => {
     if (!hovering) {
       window.removeEventListener('wheel', cancelEvent)
       document.removeEventListener('gesturestart', cancelEvent)
@@ -95,7 +95,7 @@ useHover(
 
 // Disable viewport pinch zoom on whole app
 
-const cancelEvent = (e) => e.preventDefault()
+const cancelEvent = (e: Event) => e.preventDefault()
 </script>
 
 <style scoped>
