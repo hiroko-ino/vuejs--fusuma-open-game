@@ -78,7 +78,7 @@ usePinch(
 useHover(
   ({ hovering }) => {
     if (!hovering) {
-      window.removeEventListener('wheel', cancelEvent, { passive: false })
+      window.removeEventListener('wheel', cancelEvent)
       document.removeEventListener('gesturestart', cancelEvent)
       document.removeEventListener('gesturechange', cancelEvent)
       return
